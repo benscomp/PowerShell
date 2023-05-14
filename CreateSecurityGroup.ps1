@@ -12,13 +12,13 @@ function CreateSecurityGroup {
 
     # Check if the group exists
     try {
-        $travelGroup = Get-MgGroup -Filter "DisplayName eq '$GroupName'"
+        $securityGroup = Get-MgGroup -Filter "DisplayName eq '$GroupName'"
     }
     catch {
-        $travelGroup = $null
+        $securityGroup = $null
     }
 
-    if ($travelGroup -eq $null) {
+    if ($securityGroup -eq $null) {
         # If the group doesn't exist, create it
         try {
             New-MgGroup -DisplayName $GroupName `
